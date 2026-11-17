@@ -38,7 +38,7 @@ MODELS=(
   "huihui_ai/Qwen3.8-abliterated:27b"
 )
 DEFAULT_MODEL="${MODELS[0]}"
-CONTEXT_LENGTH=65536
+CONTEXT_LENGTH=131072
 ```
 
 Add/remove model lines, change the default, and rerun `bash setup.sh`. It pulls
@@ -47,8 +47,8 @@ model downloads**; remove unwanted ones yourself with `ollama rm NAME`.
 Use local models with tool support and a context window at least as large as
 `CONTEXT_LENGTH`.
 
-The default 65,536-token context balances tool/startup space against memory on
-this 16 GB GPU. It configures Ollama's `OLLAMA_CONTEXT_LENGTH` and Hermes' `model.context_length`.
+The current configuration requests a 131,072-token context. Larger contexts
+increase cache memory and may increase CPU offloading on this 16 GB GPU. It configures Ollama's `OLLAMA_CONTEXT_LENGTH` and Hermes' `model.context_length`.
 Hermes manages its own context compaction; this script does not set Hermes output
 limits or compaction thresholds.
 An overstated Hermes limit (for example, 262,144 when Ollama runs at 65,536)
@@ -229,4 +229,71 @@ UUID selection does not guarantee that live GPU detachment for VM passthrough
 will leave ROCm healthy. If `rocminfo` fails after passthrough and kernel logs
 show GPU reset failures, save work and reboot before retesting with the VM off.
 The successful 4K-context smoke test does not establish performance at the
-configured 64K context; setup verifies inference at the configured context.
+configured 128K context; setup verifies inference at the configured context.
+
+## Conversation memory
+
+Setup enables Hermes' built-in memory and user profile, adds conversation recall
+instructions to `SOUL.md`, and initializes missing `memories/MEMORY.md` and
+`memories/USER.md` files under `$HERMES_HOME` (default: `~/.hermes`). Existing
+notes, personality text, memory limits, approval settings, and `state.db`
+conversation history are preserved. Changed files are backed up; repeat runs
+do not duplicate the instructions. If an existing memory limit is too small for
+an initial note, setup creates an empty store and keeps recall instructions in
+`SOUL.md`.
+
+Apply this to an existing installation with `bash setup.sh --configure-only`
+from the script directory, then start a fresh Hermes session or use `/new`.
+This mode also applies the model, context, theme, and shell settings described
+above. Saved notes load at session start; `session_search` can retrieve older
+conversations already in this Hermes home's database. Setup does not summarize
+all previous chats or import history from other profiles. Saving and recalling
+facts still depends on the model using Hermes' memory tools. If you explicitly
+disabled the `memory` or `session_search` toolsets, enable them in `hermes tools`.
+
+## Performance tuning and measurement
+
+`PERFORMANCE_PROFILE=speed` selects a 32,768-token context, Flash Attention,
+Q8 KV cache, and a 30-minute keep-alive. Reducing context can leave more VRAM
+for model layers and reduce CPU offloading. It also makes Hermes compact long
+conversations sooner. It does not change the model or its weight quantization.
+The default `custom` profile retains the requested 131,072-token context.
+Keep-alive is now 30 minutes for both profiles; this reduces reload delays,
+not steady-state decoding time, and holds GPU memory longer.
+
+From the script directory, apply the speed preset to an existing install:
+
+```sh
+PERFORMANCE_PROFILE=speed bash setup.sh --tune-only
+```
+
+Use the same profile on subsequent setup runs, or change its default in
+`config.sh` to `speed`. Tuning restarts Ollama. Start a fresh Hermes session
+afterward; compact an oversized existing session before reducing context.
+`--configure-only` does not apply the corresponding Ollama service settings.
+
+Measure before and after using the same model and otherwise idle machine:
+
+```sh
+python benchmark.py --model qwen3-coder:30b --context 131072 --output before.json
+python benchmark.py --model qwen3-coder:30b --context 32768 --output after.json
+```
+
+The benchmark warms the model, then measures three 256-token-budget generations
+and reports median decoding tokens/s, individual samples, load times, and loaded
+model placement. A model may stop before the budget. Requests specify context
+without changing server configuration; they can reload the model and use GPU
+resources. Existing result files are never overwritten. The same prompt is
+repeated, so prompt caching may occur: these results measure warm decoding,
+not uncached prompt processing or complete Hermes task latency. GPU allocation
+and CPU offloading are also reported by setup verification when available.
+
+The existing one-request/one-loaded-model policy prevents concurrent requests
+from multiplying context-cache requirements. Q4 cache is not enabled by the
+speed preset because it adds a quality tradeoff. A smaller model may be needed
+if these models still do not fit in VRAM; no model is silently replaced.
+No tokens/s improvement is claimed until measured on the host.
+
+References: [Ollama memory and concurrency settings](https://docs.ollama.com/faq),
+[context and offloading](https://docs.ollama.com/context-length), and
+[generation timings](https://docs.ollama.com/api/generate).

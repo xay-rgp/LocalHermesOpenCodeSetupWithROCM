@@ -50,6 +50,39 @@ def save(path, text):
     print(f'Updated {path}')
 
 
+CONTINUITY_INSTRUCTIONS = '''Conversation continuity:
+- Proactively use the memory tool to save durable user preferences, project facts, decisions, and useful outcomes. Save concise entries as they become clear; do not wait for the user to say "remember". Never save passwords, tokens, or other secrets.
+- When the user refers to earlier conversations or ongoing work, use session_search to retrieve relevant past messages before answering. If the topic is unclear, browse recent sessions first. Do not claim you cannot remember until you have checked saved memory and session history.
+- Only say a fact was saved after the memory tool confirms success. Keep memories compact and current, and distinguish retrieved facts from guesses.
+'''
+
+
+def memory_files(hermes_home, memory):
+    """Prepare continuity instructions and initial notes without replacing memories."""
+    soul = hermes_home / 'SOUL.md'
+    existing = soul.read_text() if soul.exists() else ''
+    pending = {}
+    if CONTINUITY_INSTRUCTIONS.strip() not in existing:
+        pending[soul] = existing.rstrip() + ('\n\n' if existing.strip() else '') + CONTINUITY_INSTRUCTIONS
+    seeds = {
+        'USER.md': 'User wants Hermes to remember previous conversations and maintain continuity across sessions. Proactively retain useful preferences and project decisions, and recall relevant earlier chats when needed.\n',
+        'MEMORY.md': f'Hermes home is {hermes_home}. Prior conversations are stored in state.db and can be retrieved with session_search. Persistent notes are in memories/MEMORY.md and memories/USER.md.\n',
+    }
+    for name, text in seeds.items():
+        path = hermes_home / 'memories' / name
+        if path.is_symlink():
+            raise ValueError(f'Refusing to replace symlink {path}; edit its target manually')
+        if path.exists() and not path.is_file():
+            raise ValueError(f'{path} must be a regular file')
+        if not path.exists():
+            key, default = ('memory_char_limit', 2200) if name == 'MEMORY.md' else ('user_char_limit', 1375)
+            limit = int(memory.get(key, default))
+            # Do not seed beyond a user's existing capacity. SOUL.md still
+            # supplies recall instructions when a store is too small for a seed.
+            pending[path] = text if len(text) <= limit else ''
+    return pending
+
+
 def configure(home, models, default, context=65536, hermes_home=None, check_only=False):
     if not models or len(set(models)) != len(models) or default not in models:
         raise ValueError('Models must be unique and include the default')
@@ -82,6 +115,10 @@ def configure(home, models, default, context=65536, hermes_home=None, check_only
     if not isinstance(display, dict):
         raise ValueError(f'{hermes_path}: display must be a mapping')
     hermes['display'] = {**display, 'skin': 'white'}
+    memory = hermes.get('memory', {})
+    if not isinstance(memory, dict):
+        raise ValueError(f'{hermes_path}: memory must be a mapping')
+    hermes['memory'] = {**memory, 'memory_enabled': True, 'user_profile_enabled': True}
     white_skin = (Path(__file__).resolve().parent / 'skins/white.yaml').read_text()
     integrations = ollama.setdefault('integrations', {})
     if not isinstance(integrations, dict):
@@ -106,6 +143,7 @@ def configure(home, models, default, context=65536, hermes_home=None, check_only
     pending = {hermes_home / 'skins/white.yaml': white_skin,
                ollama_path: json.dumps(ollama, indent=2) + '\n',
                hermes_path: yaml.safe_dump(hermes, sort_keys=False, allow_unicode=True)}
+    pending.update(memory_files(hermes_home, memory))
 
     # Avoid global API environment exports; configure each agent explicitly.
     path_script = '''# Managed by LocalModelSetupScript. Bash login/interactive PATH.
@@ -152,8 +190,16 @@ def installed_models():
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
     try:
         with opener.open('http://127.0.0.1:11434/api/tags', timeout=5) as response:
-            return [m['name'] for m in json.load(response).get('models', [])
-                    if isinstance(m.get('name'), str) and not m.get('remote_host')]
+            catalog = json.load(response)
+        if not isinstance(catalog, dict) or not isinstance(catalog.get('models'), list):
+            raise ValueError('Invalid Ollama model catalog')
+        if any(not isinstance(m, dict) for m in catalog['models']):
+            raise ValueError('Invalid Ollama model entry')
+        return list(dict.fromkeys(
+            m['name'] for m in catalog['models']
+            if isinstance(m.get('name'), str) and m['name'].strip()
+            and not m['name'].endswith(':cloud')
+            and not m.get('remote_host') and not m.get('remote_model')))
     except (OSError, ValueError, urllib.error.URLError):
         roots = [Path(os.environ.get('OLLAMA_MODELS', '/var/lib/ollama')),
                  Path.home() / '.ollama/models']

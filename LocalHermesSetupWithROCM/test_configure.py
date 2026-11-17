@@ -36,6 +36,38 @@ class ConfigurationTests(unittest.TestCase):
         self.run_configuration()
         self.assertFalse((self.home / '.pi').exists())
 
+    def test_memory_setup_preserves_notes_history_and_personality(self):
+        self.write('.hermes/config.yaml', {'memory': {
+            'memory_enabled': False, 'user_profile_enabled': False,
+            'memory_char_limit': 8000, 'write_approval': True}})
+        root = self.home / '.hermes'
+        (root / 'memories').mkdir()
+        (root / 'memories/MEMORY.md').write_text('Existing project notes\n')
+        (root / 'memories/USER.md').write_text('Existing preferences\n')
+        (root / 'state.db').write_bytes(b'existing conversation database')
+        (root / 'SOUL.md').write_text('My custom personality.\n')
+        self.run_configuration()
+        self.assertEqual(self.read('.hermes/config.yaml')['memory'], {
+            'memory_enabled': True, 'user_profile_enabled': True,
+            'memory_char_limit': 8000, 'write_approval': True})
+        self.assertEqual((root / 'memories/MEMORY.md').read_text(), 'Existing project notes\n')
+        self.assertEqual((root / 'memories/USER.md').read_text(), 'Existing preferences\n')
+        self.assertEqual((root / 'state.db').read_bytes(), b'existing conversation database')
+        self.assertTrue((root / 'SOUL.md').read_text().startswith('My custom personality.\n'))
+        self.assertEqual(next(root.glob('SOUL.md.backup-*')).read_text(), 'My custom personality.\n')
+        self.run_configuration()
+        self.assertEqual((root / 'SOUL.md').read_text().count('Conversation continuity:'), 1)
+
+    def test_memory_initialization_uses_custom_home(self):
+        custom = self.home / 'custom-hermes'
+        with contextlib.redirect_stdout(io.StringIO()):
+            configure(self.home, self.models, self.models[0], hermes_home=custom)
+        self.assertIn(str(custom), (custom / 'memories/MEMORY.md').read_text())
+        self.assertIn('previous conversations', (custom / 'memories/USER.md').read_text())
+        self.assertIn('session_search', (custom / 'SOUL.md').read_text())
+        self.assertEqual((custom / 'memories/USER.md').stat().st_mode & 0o777, 0o600)
+        self.assertFalse((self.home / '.hermes').exists())
+
     def test_existing_pi_configuration_is_untouched(self):
         path = self.home / '.pi/agent/settings.json'
         path.parent.mkdir(parents=True)
@@ -187,7 +219,7 @@ class ConfigurationTests(unittest.TestCase):
                 self.run_configuration()
             self.assertFalse((self.home / '.hermes').exists())
         (self.home / '.ollama/config.json').unlink()
-        for bad in ([], {'model': []}, {'display': []}):
+        for bad in ([], {'model': []}, {'display': []}, {'memory': []}):
             self.write('.hermes/config.yaml', bad)
             with self.assertRaises(ValueError):
                 self.run_configuration()

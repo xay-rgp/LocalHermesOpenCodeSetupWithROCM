@@ -69,6 +69,7 @@ PLAN
 5. Generate a short response with the default model and verify ROCm GPU use.
 6. Configure Hermes for local Ollama; default=$DEFAULT_MODEL.
    Install and activate the white theme, including both ASCII graphics.
+   Enable persistent memory and past-conversation recall; preserve existing notes.
    Add shell PATH entries for Bash and Fish; back up changed existing files.
 Other downloaded models are never deleted. No changes made by this dry run.
 PLAN
@@ -88,6 +89,7 @@ configure_agents() {
 if [[ "$MODE" == configure-only ]]; then
   configure_agents
   echo 'Hermes settings updated. Ollama service context and model downloads were not changed.'
+  echo 'Start a new Hermes session (/new) to load memory and recall instructions.'
   exit 0
 fi
 

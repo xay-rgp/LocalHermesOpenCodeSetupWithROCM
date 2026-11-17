@@ -31,6 +31,7 @@ class SetupTests(unittest.TestCase):
         self.env = dict(os.environ, HOME=str(self.home),
                         HERMES_HOME=str(self.home / '.hermes'),
                         PATH=f'{self.bin}:/usr/bin:/bin', AUDIT_LOG=str(self.log))
+        self.env['PERFORMANCE_PROFILE'] = 'custom'
         self.stub('sudo', '''printf 'sudo %s\\n' "$*" >> "$AUDIT_LOG"
 if [[ "$1" == install && "$2" == -m && "$3" == 0644 ]]; then cat "$4" >> "$AUDIT_LOG"; fi
 if [[ "$1" == test ]]; then exit 1; fi
@@ -69,7 +70,31 @@ exit 1
         self.assertFalse(list(self.home.iterdir()))
         self.assertEqual(self.calls(), '')
 
+    def test_speed_profile_reduces_context_and_remains_local(self):
+        self.env['PERFORMANCE_PROFILE'] = 'speed'
+        result = self.run_setup('--dry-run')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('context=32768', result.stdout)
+        self.assertIn('keep-alive=30m', result.stdout)
+        self.assertFalse(list(self.home.iterdir()))
+        result = self.run_setup('--configure-only')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        config = yaml.safe_load((self.home / '.hermes/config.yaml').read_text())
+        self.assertEqual(config['model']['context_length'], 32768)
+        self.assertEqual(config['model']['base_url'], 'http://127.0.0.1:11434/v1')
+
+    def test_unknown_performance_profile_fails_without_changes(self):
+        self.env['PERFORMANCE_PROFILE'] = 'typo'
+        result = self.run_setup('--dry-run')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('PERFORMANCE_PROFILE', result.stderr)
+        self.assertFalse(list(self.home.iterdir()))
+        self.assertEqual(self.calls(), '')
+
     def test_configure_only_and_repeat(self):
+        # Exercise a known context independently of the user's editable config.
+        with (self.repo / 'config.sh').open('a') as config:
+            config.write('\nCONTEXT_LENGTH=65536\n')
         for _ in range(2):
             result = self.run_setup('--configure-only')
             self.assertEqual(result.returncode, 0, result.stderr)
@@ -79,6 +104,8 @@ exit 1
         self.assertEqual(model['provider'], 'custom')
         self.assertEqual(model['api_mode'], 'chat_completions')
         self.assertEqual(model['context_length'], 65536)
+        self.assertIn('session_search', (self.home / '.hermes/SOUL.md').read_text())
+        self.assertTrue((self.home / '.hermes/memories/USER.md').is_file())
         subprocess.run(['bash', '-n', str(self.home / '.config/local-model-setup/path.sh')], check=True)
         if shutil.which('fish'):
             subprocess.run(['fish', '-n', str(self.home / '.config/fish/conf.d/local-model-setup.fish')], check=True)

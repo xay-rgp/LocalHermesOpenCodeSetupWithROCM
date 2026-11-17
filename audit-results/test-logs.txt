@@ -1,0 +1,1562 @@
+=== SCAN 01 ===
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ERROR
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... FAIL
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... FAIL
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... 
+  test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload=None) ... ERROR
+  test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload=[]) ... ERROR
+  test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload={'models': None}) ... ERROR
+  test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload={'models': [None, 123]}) ... ERROR
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... FAIL
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... 
+  test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) (value='0') ... ERROR
+  test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) (value='-1') ... ERROR
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+
+======================================================================
+ERROR: test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 114, in test_journal_timeout_bytes_produce_actionable_error
+    verify.current_logs('invocation')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/verify.py", line 25, in current_logs
+    raise SystemExit('Cannot read current Ollama logs: ' + '; '.join(errors) +
+                                                           ~~~~~~~~~^^^^^^^^
+TypeError: sequence item 0: expected str instance, bytes found
+
+======================================================================
+ERROR: test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 89, in test_malformed_catalog_falls_back_to_local_manifests
+    self.assertEqual(self.catalog(payload), [])
+                     ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 84, in catalog
+    return configure.installed_models()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/configure.py", line 185, in installed_models
+    return [m['name'] for m in json.load(response).get('models', [])
+                               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+ERROR: test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 89, in test_malformed_catalog_falls_back_to_local_manifests
+    self.assertEqual(self.catalog(payload), [])
+                     ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 84, in catalog
+    return configure.installed_models()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/configure.py", line 185, in installed_models
+    return [m['name'] for m in json.load(response).get('models', [])
+                               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+ERROR: test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload={'models': None})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 89, in test_malformed_catalog_falls_back_to_local_manifests
+    self.assertEqual(self.catalog(payload), [])
+                     ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 84, in catalog
+    return configure.installed_models()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/configure.py", line 185, in installed_models
+    return [m['name'] for m in json.load(response).get('models', [])
+                               ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) (payload={'models': [None, 123]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 89, in test_malformed_catalog_falls_back_to_local_manifests
+    self.assertEqual(self.catalog(payload), [])
+                     ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 84, in catalog
+    return configure.installed_models()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/configure.py", line 186, in installed_models
+    if isinstance(m.get('name'), str) and not m.get('remote_host')]
+                  ^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+ERROR: test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) (value='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 123, in test_invalid_verification_context_rejected_before_commands
+    verify.main()
+    ~~~~~~~~~~~^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/verify.py", line 55, in main
+    effective = dict(item.split('=', 1) for item in shlex.split(environment) if '=' in item)
+                                                    ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/shlex.py", line 312, in split
+    return list(lex)
+  File "/usr/lib/python3.14/shlex.py", line 299, in __next__
+    token = self.get_token()
+  File "/usr/lib/python3.14/shlex.py", line 107, in get_token
+    raw = self.read_token()
+  File "/usr/lib/python3.14/shlex.py", line 151, in read_token
+    elif nextchar in self.whitespace:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'in <string>' requires string as left operand, not MagicMock
+
+======================================================================
+ERROR: test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) (value='-1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 123, in test_invalid_verification_context_rejected_before_commands
+    verify.main()
+    ~~~~~~~~~~~^^
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/verify.py", line 55, in main
+    effective = dict(item.split('=', 1) for item in shlex.split(environment) if '=' in item)
+                                                    ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/shlex.py", line 312, in split
+    return list(lex)
+  File "/usr/lib/python3.14/shlex.py", line 299, in __next__
+    token = self.get_token()
+  File "/usr/lib/python3.14/shlex.py", line 107, in get_token
+    raw = self.read_token()
+  File "/usr/lib/python3.14/shlex.py", line 151, in read_token
+    elif nextchar in self.whitespace:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'in <string>' requires string as left operand, not MagicMock
+
+======================================================================
+FAIL: test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 32, in test_small_memory_budgets_are_respected
+    self.assertLessEqual(len((root / 'memories/MEMORY.md').read_text()), 32)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 191 not less than or equal to 32
+
+======================================================================
+FAIL: test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 97, in test_catalog_excludes_cloud_and_deduplicates_local_models
+    self.assertEqual(result, ['local:latest'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['local:latest', 'local:latest', 'remote:cloud', 'remote2:latest', ''] != ['local:latest']
+
+First list contains 4 additional elements.
+First extra element 1:
+'local:latest'
+
+- ['local:latest', 'local:latest', 'remote:cloud', 'remote2:latest', '']
++ ['local:latest']
+
+======================================================================
+FAIL: test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xay/LocalHermesSetupWithROCM/LocalHermesSetupWithROCM/test_audit_regressions.py", line 39, in test_memory_directory_in_place_of_file_fails_before_writes
+    with self.assertRaisesRegex(ValueError, 'regular file'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 59 tests in 1.425s
+
+FAILED (failures=3, errors=7)
+
+=== SCAN 02 ===
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 59 tests in 1.380s
+
+OK
+
+=== SCAN 03 ===
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+
+----------------------------------------------------------------------
+Ran 63 tests in 1.480s
+
+OK
+
+=== SCAN 04 ===
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.498s
+
+OK
+
+=== SCAN 05 ===
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.534s
+
+OK
+
+=== SCAN 06 ===
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.509s
+
+OK
+
+=== SCAN 07 ===
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.474s
+
+OK
+
+=== SCAN 08 ===
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.498s
+
+OK
+
+=== SCAN 09 ===
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.665s
+
+OK
+
+=== SCAN 10 ===
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.568s
+
+OK
+
+=== SCAN 11 ===
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.554s
+
+OK
+
+=== SCAN 12 ===
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.414s
+
+OK
+
+=== SCAN 13 ===
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.477s
+
+OK
+
+=== SCAN 14 ===
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.595s
+
+OK
+
+=== SCAN 15 ===
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.404s
+
+OK
+
+=== SCAN 16 ===
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.529s
+
+OK
+
+=== SCAN 17 ===
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.456s
+
+OK
+
+=== SCAN 18 ===
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.382s
+
+OK
+
+=== SCAN 19 ===
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.454s
+
+OK
+
+=== SCAN 20 ===
+test_model_without_tools_is_rejected (test_verify.VerificationTests.test_model_without_tools_is_rejected) ... ok
+test_new_login_profile_preserves_profile_loading (test_configure.ConfigurationTests.test_new_login_profile_preserves_profile_loading) ... ok
+test_claude_configuration_is_not_created (test_configure.ConfigurationTests.test_claude_configuration_is_not_created) ... ok
+test_empty_journal_is_not_verification (test_verify.VerificationTests.test_empty_journal_is_not_verification) ... ok
+test_invalid_model_lists_are_rejected (test_configure.ConfigurationTests.test_invalid_model_lists_are_rejected) ... ok
+test_missing_or_conflicting_gpu_selection_is_rejected (test_verify.VerificationTests.test_missing_or_conflicting_gpu_selection_is_rejected) ... ok
+test_invalid_nested_structures (test_configure.ConfigurationTests.test_invalid_nested_structures) ... ok
+test_zero_keep_alive_is_rejected_before_changes (test_setup.SetupTests.test_zero_keep_alive_is_rejected_before_changes) ... ok
+test_bad_hermes_yaml_fails_before_any_writes (test_configure.ConfigurationTests.test_bad_hermes_yaml_fails_before_any_writes) ... ok
+test_other_gpu_backend_does_not_pass_rocm_check (test_verify.VerificationTests.test_other_gpu_backend_does_not_pass_rocm_check) ... ok
+test_model_context_override_is_rejected (test_verify.VerificationTests.test_model_context_override_is_rejected) ... ok
+test_dry_run_is_read_only (test_setup.SetupTests.test_dry_run_is_read_only) ... ok
+test_install_flow (test_setup.SetupTests.test_install_flow) ... ok
+test_custom_home_context_and_legacy_model (test_configure.ConfigurationTests.test_custom_home_context_and_legacy_model) ... ok
+test_symlinked_new_memory_is_rejected_without_writes (test_audit_regressions.AuditRegressions.test_symlinked_new_memory_is_rejected_without_writes) ... ok
+test_partial_offload_reports_performance_opportunity (test_verify.VerificationTests.test_partial_offload_reports_performance_opportunity) ... ok
+test_catalog_excludes_cloud_and_deduplicates_local_models (test_audit_regressions.AuditRegressions.test_catalog_excludes_cloud_and_deduplicates_local_models) ... ok
+test_second_run_changes_nothing (test_configure.ConfigurationTests.test_second_run_changes_nothing) ... ok
+test_white_theme_install_preserves_display_and_backs_up_skin (test_configure.ConfigurationTests.test_white_theme_install_preserves_display_and_backs_up_skin) ... ok
+test_hermes_configuration_preserves_settings_and_backs_up (test_configure.ConfigurationTests.test_hermes_configuration_preserves_settings_and_backs_up) ... ok
+test_invalid_gpu_uuid_is_rejected_before_changes (test_setup.SetupTests.test_invalid_gpu_uuid_is_rejected_before_changes) ... ok
+test_preflight_preserves_existing_files_and_mtimes (test_audit_regressions.AuditRegressions.test_preflight_preserves_existing_files_and_mtimes) ... ok
+test_tune_only_and_verification_failure (test_setup.SetupTests.test_tune_only_and_verification_failure) ... ok
+test_invalid_arguments_and_duplicate_models (test_setup.SetupTests.test_invalid_arguments_and_duplicate_models) ... ok
+test_empty_existing_memories_are_preserved (test_audit_regressions.AuditRegressions.test_empty_existing_memories_are_preserved) ... ok
+test_failed_atomic_replace_preserves_original_and_cleans_temp (test_audit_regressions.AuditRegressions.test_failed_atomic_replace_preserves_original_and_cleans_temp) ... ok
+test_service_and_model_download_failures_stop_install (test_setup.SetupTests.test_service_and_model_download_failures_stop_install) ... ok
+test_cpu_only_model_is_rejected (test_verify.VerificationTests.test_cpu_only_model_is_rejected) ... ok
+test_memory_directory_in_place_of_file_fails_before_writes (test_audit_regressions.AuditRegressions.test_memory_directory_in_place_of_file_fails_before_writes) ... ok
+test_default_model_is_first_in_launcher (test_configure.ConfigurationTests.test_default_model_is_first_in_launcher) ... ok
+test_unknown_performance_profile_fails_without_changes (test_setup.SetupTests.test_unknown_performance_profile_fails_without_changes) ... ok
+test_yaml_alias_does_not_change_auxiliary_provider (test_configure.ConfigurationTests.test_yaml_alias_does_not_change_auxiliary_provider) ... ok
+test_late_symlink_fails_without_partial_writes (test_configure.ConfigurationTests.test_late_symlink_fails_without_partial_writes) ... ok
+test_preflight_makes_no_writes (test_configure.ConfigurationTests.test_preflight_makes_no_writes) ... ok
+test_stale_context_is_replaced_without_changing_compression (test_configure.ConfigurationTests.test_stale_context_is_replaced_without_changing_compression) ... ok
+test_journal_timeout_bytes_produce_actionable_error (test_audit_regressions.AuditRegressions.test_journal_timeout_bytes_produce_actionable_error) ... ok
+test_memory_setup_preserves_notes_history_and_personality (test_configure.ConfigurationTests.test_memory_setup_preserves_notes_history_and_personality) ... ok
+test_download_and_installer_failures_stop_setup (test_setup.SetupTests.test_download_and_installer_failures_stop_setup) ... ok
+test_file_modes_are_preserved (test_configure.ConfigurationTests.test_file_modes_are_preserved) ... ok
+test_speed_profile_reduces_context_and_remains_local (test_setup.SetupTests.test_speed_profile_reduces_context_and_remains_local) ... ok
+test_missing_timings_and_incomplete_generations_rejected (test_benchmark.BenchmarkTests.test_missing_timings_and_incomplete_generations_rejected) ... ok
+test_warmup_excluded_and_median_computed (test_benchmark.BenchmarkTests.test_warmup_excluded_and_median_computed) ... ok
+test_api_error_stops_verification (test_verify.VerificationTests.test_api_error_stops_verification) ... ok
+test_new_login_profile_preserves_bash_login_precedence (test_configure.ConfigurationTests.test_new_login_profile_preserves_bash_login_precedence) ... ok
+test_custom_context_and_home_through_shell (test_setup.SetupTests.test_custom_context_and_home_through_shell) ... ok
+test_pi_configuration_is_not_created (test_configure.ConfigurationTests.test_pi_configuration_is_not_created) ... ok
+test_journal_failure_explains_recovery (test_verify.VerificationTests.test_journal_failure_explains_recovery) ... ok
+test_memory_yaml_alias_does_not_modify_unrelated_settings (test_audit_regressions.AuditRegressions.test_memory_yaml_alias_does_not_modify_unrelated_settings) ... ok
+test_matching_service_and_loaded_context_pass (test_verify.VerificationTests.test_matching_service_and_loaded_context_pass) ... ok
+test_invalid_verification_context_rejected_before_commands (test_audit_regressions.AuditRegressions.test_invalid_verification_context_rejected_before_commands) ... ok
+test_conflicting_service_runtime_settings_are_rejected (test_verify.VerificationTests.test_conflicting_service_runtime_settings_are_rejected) ... ok
+test_memory_initialization_uses_custom_home (test_configure.ConfigurationTests.test_memory_initialization_uses_custom_home) ... ok
+test_custom_registry_manifest_keeps_registry_name (test_audit_regressions.AuditRegressions.test_custom_registry_manifest_keeps_registry_name) ... ok
+test_small_memory_budgets_are_respected (test_audit_regressions.AuditRegressions.test_small_memory_budgets_are_respected) ... ok
+test_configure_only_and_repeat (test_setup.SetupTests.test_configure_only_and_repeat) ... ok
+test_existing_pi_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_pi_configuration_is_untouched) ... ok
+test_journal_access_falls_back_to_noninteractive_sudo (test_verify.VerificationTests.test_journal_access_falls_back_to_noninteractive_sudo) ... ok
+test_malformed_catalog_falls_back_to_local_manifests (test_audit_regressions.AuditRegressions.test_malformed_catalog_falls_back_to_local_manifests) ... ok
+test_later_override_is_rejected (test_verify.VerificationTests.test_later_override_is_rejected) ... ok
+test_empty_or_incomplete_generation_is_rejected (test_verify.VerificationTests.test_empty_or_incomplete_generation_is_rejected) ... ok
+test_failed_install_verification_preserves_existing_agent_config (test_setup.SetupTests.test_failed_install_verification_preserves_existing_agent_config) ... ok
+test_invalid_config_fails_before_service_changes (test_setup.SetupTests.test_invalid_config_fails_before_service_changes) ... ok
+test_cline_configuration_is_untouched (test_configure.ConfigurationTests.test_cline_configuration_is_untouched) ... ok
+test_existing_claude_configuration_is_untouched (test_configure.ConfigurationTests.test_existing_claude_configuration_is_untouched) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.564s
+
+OK

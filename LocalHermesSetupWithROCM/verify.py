@@ -21,7 +21,10 @@ def current_logs(invocation):
                 return logs
             errors.append('No readable entries for the current service invocation.')
         except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
-            errors.append((getattr(exc, 'stderr', '') or str(exc)).strip())
+            detail = getattr(exc, 'stderr', '') or str(exc)
+            if isinstance(detail, bytes):
+                detail = detail.decode('utf-8', errors='replace')
+            errors.append(detail.strip())
     raise SystemExit('Cannot read current Ollama logs: ' + '; '.join(errors) +
                      '\nRefresh sudo access with `sudo -v`, then rerun setup. '
                      'ROCm verification has not passed.')
@@ -35,6 +38,8 @@ def main():
     parser.add_argument('--kv-cache', choices=['f16', 'q8_0', 'q4_0'])
     parser.add_argument('--flash-attention', choices=['0', '1'])
     args = parser.parse_args()
+    if args.context <= 0:
+        parser.error('--context must be positive')
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
     base = 'http://127.0.0.1:11434'
 
@@ -102,6 +107,10 @@ def main():
     if 'library=ROCm' not in logs or 'ROCm0' not in logs:
         raise SystemExit('GPU allocation exists, but ROCm was not verified in current logs. Inspect journalctl -u ollama.')
     print(f"ROCm verified: {args.model}, GPU allocation {loaded[0]['size_vram'] / 2**30:.2f} GiB")
+    total_size = loaded[0].get('size', 0)
+    if total_size > loaded[0]['size_vram']:
+        print('Model is partially CPU-offloaded. A smaller context or model may improve tokens/s.')
+        print(f"Reported allocation: {loaded[0]['size_vram'] / total_size:.0%} on GPU")
     if result.get('eval_duration'):
         print(f"Short smoke test: {result.get('eval_count', 0) * 1e9 / result['eval_duration']:.1f} tokens/s")
     print('This checks inference, not agent tool-call quality or a full performance benchmark.')

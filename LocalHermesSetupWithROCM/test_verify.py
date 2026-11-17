@@ -10,12 +10,12 @@ import verify
 
 
 class VerificationTests(unittest.TestCase):
-    def run_check(self, environment, context=65536, vram=1000, capabilities=None, generation=None, logs='library=ROCm ROCm0'):
+    def run_check(self, environment, context=65536, vram=1000, capabilities=None, generation=None, logs='library=ROCm ROCm0', size=0):
         opener = MagicMock()
         responses = [
             {'capabilities': ['completion', 'tools'] if capabilities is None else capabilities},
             {'model': 'example:latest', 'done': True, 'response': 'Hello'} if generation is None else generation,
-            {'models': [{'name': 'example:latest', 'size_vram': vram,
+            {'models': [{'name': 'example:latest', 'size_vram': vram, 'size': size,
                          'context_length': context}]},
         ]
         opener.open.side_effect = [contextlib.closing(io.StringIO(json.dumps(r)))
@@ -55,6 +55,13 @@ class VerificationTests(unittest.TestCase):
 
     def test_matching_service_and_loaded_context_pass(self):
         self.assertEqual(self.run_check(self.environment).open.call_count, 3)
+
+    def test_partial_offload_reports_performance_opportunity(self):
+        with patch('builtins.print') as output:
+            self.run_check(self.environment, size=2000, vram=1000)
+        printed = '\n'.join(str(call.args[0]) for call in output.call_args_list)
+        self.assertIn('partially CPU-offloaded', printed)
+        self.assertIn('50% on GPU', printed)
 
     def test_later_override_is_rejected(self):
         with self.assertRaisesRegex(SystemExit, 'OLLAMA_CONTEXT_LENGTH'):
