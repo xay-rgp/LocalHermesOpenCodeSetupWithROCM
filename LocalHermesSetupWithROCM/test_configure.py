@@ -17,7 +17,11 @@ class ConfigurationTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.home = Path(self.temporary.name)
-        self.models = ['qwen3-coder:30b', 'huihui_ai/Qwen3.8-abliterated:27b']
+        self.models = [
+            'qwen3-coder:30b',
+            'huihui_ai/Qwen3.8-abliterated:27b',
+            'prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S',
+        ]
 
     def write(self, name, data):
         path = self.home / name
@@ -253,7 +257,7 @@ class ConfigurationTests(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()):
             configure(self.home, self.models, self.models[1])
         self.assertEqual(self.read('.ollama/config.json')['integrations']['hermes']['models'],
-                         list(reversed(self.models)))
+                         [self.models[1], self.models[0], self.models[2]])
         self.assertEqual(self.read('.hermes/config.yaml')['model']['default'], self.models[1])
 
     def test_new_login_profile_preserves_bash_login_precedence(self):

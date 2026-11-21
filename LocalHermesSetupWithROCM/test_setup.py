@@ -118,7 +118,11 @@ exit 1
         calls = self.calls()
         self.assertIn('pacman -Syu --needed', calls)
         self.assertIn('installer --channel stable --non-interactive', calls)
-        self.assertEqual(calls.count('ollama pull '), 2)
+        self.assertEqual(calls.count('ollama pull '), 3)
+        self.assertIn(
+            'ollama pull prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S',
+            calls,
+        )
         self.assertIn('hermes --version', calls)
         self.assertIn('verify', calls)
         self.assertIn('Environment="ROCR_VISIBLE_DEVICES=GPU-4f3288ca66e47853"', calls)

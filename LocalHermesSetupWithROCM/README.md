@@ -1,6 +1,6 @@
 # Local model setup: Arch Linux + AMD ROCm
 
-Installs Ollama with ROCm, your two models, and Hermes Agent. Written for your Arch Linux x86_64 / RX 9060 XT setup.
+Installs Ollama with ROCm, your three models, and Hermes Agent. Written for your Arch Linux x86_64 / RX 9060 XT setup.
 It can also run on another Arch x86_64 machine with a supported AMD GPU;
 it is not an Ubuntu, NVIDIA, macOS, or Windows installer.
 
@@ -15,7 +15,7 @@ Run as your regular user, **not** `sudo bash`. The script requests sudo for
 system packages, the service configuration, and reading GPU verification logs.
 It performs `pacman -Syu --needed ...` (a full Arch upgrade) with pacman's usual
 confirmation, then enables/restarts Ollama. Finish active generations first.
-Downloads include the two model files plus ROCm and agent packages;
+Downloads include the three model files plus ROCm and agent packages;
 existing Ollama blobs are reused. Internet access is required.
 
 Open a fresh terminal afterward. Hermes uses local Ollama at `127.0.0.1:11434`;
@@ -36,6 +36,7 @@ Edit **config.sh**, the only file needed for ordinary changes:
 MODELS=(
   "qwen3-coder:30b"
   "huihui_ai/Qwen3.8-abliterated:27b"
+  "prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S"
 )
 DEFAULT_MODEL="${MODELS[0]}"
 CONTEXT_LENGTH=131072

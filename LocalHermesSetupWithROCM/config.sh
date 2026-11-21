@@ -4,6 +4,7 @@
 MODELS=(
   "qwen3-coder:30b"
   "huihui_ai/Qwen3.8-abliterated:27b"
+  "prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S"
 )
 DEFAULT_MODEL="${MODELS[0]}"
 
