@@ -49,6 +49,23 @@ done
 [[ "$HERMES_CHANNEL" == stable || "$HERMES_CHANNEL" == main ]] || {
   echo 'HERMES_CHANNEL must be stable or main.' >&2; exit 2;
 }
+TUNED_MODEL_NAME="${TUNED_MODEL_NAME:-}"
+TUNED_MODEL_NUM_GPU="${TUNED_MODEL_NUM_GPU:-999}"
+TUNED_MODEL_NUM_BATCH="${TUNED_MODEL_NUM_BATCH:-512}"
+GPU_POWER_PROFILE="${GPU_POWER_PROFILE:-}"
+if [[ -n "$TUNED_MODEL_NAME" ]]; then
+  [[ "$TUNED_MODEL_NAME" =~ ^[A-Za-z0-9][A-Za-z0-9._:/-]*$ ]] || { echo "Invalid TUNED_MODEL_NAME: $TUNED_MODEL_NAME" >&2; exit 2; }
+  [[ "$TUNED_MODEL_NUM_GPU" =~ ^[1-9][0-9]*$ ]] || { echo 'TUNED_MODEL_NUM_GPU must be a positive integer.' >&2; exit 2; }
+  [[ "$TUNED_MODEL_NUM_BATCH" =~ ^[1-9][0-9]*$ ]] || { echo 'TUNED_MODEL_NUM_BATCH must be a positive integer.' >&2; exit 2; }
+fi
+if [[ -n "$GPU_POWER_PROFILE" ]]; then
+  [[ "$GPU_POWER_PROFILE" =~ ^[0-9]+$ ]] || { echo 'GPU_POWER_PROFILE must be a non-negative integer.' >&2; exit 2; }
+fi
+ACTIVE_MODEL="${TUNED_MODEL_NAME:-$DEFAULT_MODEL}"
+AGENT_MODELS=("${MODELS[@]}")
+if [[ -n "$TUNED_MODEL_NAME" && -z "${seen_models[$TUNED_MODEL_NAME]+present}" ]]; then
+  AGENT_MODELS=("$TUNED_MODEL_NAME" "${MODELS[@]}")
+fi
 
 if [[ "$MODE" == dry-run ]]; then
   cat <<PLAN
@@ -61,13 +78,21 @@ Target: Arch Linux x86_64 with an AMD ROCm-supported GPU.
    Flash Attention=$FLASH_ATTENTION, KV cache=$KV_CACHE_TYPE.
    Restrict ROCm to GPU UUID=$ROCM_GPU_UUID (exclude the iGPU).
    Enable and restart ollama.service (interrupts active generations).
+PLAN
+  if [[ -n "$GPU_POWER_PROFILE" ]]; then
+    echo "   Set AMD discrete GPU power profile to $GPU_POWER_PROFILE (COMPUTE)."
+  fi
+  cat <<PLAN
 3. Pull these models (existing downloads are reused):
 PLAN
   printf '   %s\n' "${MODELS[@]}"
+  if [[ -n "$TUNED_MODEL_NAME" ]]; then
+    echo "   Create tuned alias $TUNED_MODEL_NAME from $DEFAULT_MODEL (num_gpu=$TUNED_MODEL_NUM_GPU, num_ctx=$CONTEXT_LENGTH, num_batch=$TUNED_MODEL_NUM_BATCH)."
+  fi
   cat <<PLAN
 4. Install Hermes CLI (channel=$HERMES_CHANNEL) as this user.
-5. Generate a short response with the default model and verify ROCm GPU use.
-6. Configure Hermes for local Ollama; default=$DEFAULT_MODEL.
+5. Generate a short response with the default model ($ACTIVE_MODEL) and verify ROCm GPU use.
+6. Configure Hermes for local Ollama; default=$ACTIVE_MODEL.
    Install and activate the white theme, including both ASCII graphics.
    Enable persistent memory and past-conversation recall; preserve existing notes.
    Add shell PATH entries for Bash and Fish; back up changed existing files.
@@ -83,7 +108,34 @@ export OLLAMA_HOST=127.0.0.1:11434
 configure_agents() {
   /usr/bin/python "$SCRIPT_DIR/configure.py" --home "$HOME" \
     --context "$CONTEXT_LENGTH" --hermes-home "${HERMES_HOME:-$HOME/.hermes}" \
-    --discover-installed --default "$DEFAULT_MODEL" --models "${MODELS[@]}" "$@"
+    --discover-installed --default "$ACTIVE_MODEL" --models "${AGENT_MODELS[@]}" "$@"
+}
+
+apply_gpu_power_profile() {
+  [[ -n "$GPU_POWER_PROFILE" ]] || return 0
+  local card vram
+  for card in /sys/class/drm/card[0-9]/device; do
+    [[ -f "$card/power_dpm_force_performance_level" && -f "$card/pp_power_profile_mode" && -f "$card/mem_info_vram_total" ]] || continue
+    vram=$(cat "$card/mem_info_vram_total" 2>/dev/null || echo 0)
+    # Target the discrete GPU (> 2 GiB VRAM), skipping small iGPUs.
+    if [[ "$vram" =~ ^[0-9]+$ ]] && (( vram > 2147483648 )); then
+      echo "Setting AMD GPU power profile ($card) to $GPU_POWER_PROFILE..."
+      sudo sh -c 'echo manual > "$1/power_dpm_force_performance_level" && echo "$2" > "$1/pp_power_profile_mode"' \
+        _ "$card" "$GPU_POWER_PROFILE" || echo "Warning: could not set GPU power profile on $card." >&2
+    fi
+  done
+}
+
+create_tuned_model() {
+  [[ -n "$TUNED_MODEL_NAME" ]] || return 0
+  echo "Creating tuned Ollama alias $TUNED_MODEL_NAME from $DEFAULT_MODEL..."
+  cat > "$temp_dir/Modelfile.tuned" <<MODELFILE
+FROM $DEFAULT_MODEL
+PARAMETER num_gpu $TUNED_MODEL_NUM_GPU
+PARAMETER num_ctx $CONTEXT_LENGTH
+PARAMETER num_batch $TUNED_MODEL_NUM_BATCH
+MODELFILE
+  ollama create "$TUNED_MODEL_NAME" -f "$temp_dir/Modelfile.tuned"
 }
 
 if [[ "$MODE" == configure-only ]]; then
@@ -147,10 +199,12 @@ for ((attempt=0; attempt<60; attempt++)); do
   sleep 1
 done
 [[ "$ready" == true ]] || { echo 'Ollama failed to start. Run: journalctl -u ollama -n 100' >&2; exit 1; }
+apply_gpu_power_profile
 
 if [[ "$MODE" == tune-only ]]; then
+  create_tuned_model
   # Verify the service before updating the agent settings.
-  /usr/bin/python "$SCRIPT_DIR/verify.py" --model "$DEFAULT_MODEL" --context "$CONTEXT_LENGTH" \
+  /usr/bin/python "$SCRIPT_DIR/verify.py" --model "$ACTIVE_MODEL" --context "$CONTEXT_LENGTH" \
     --kv-cache "$KV_CACHE_TYPE" --flash-attention "$FLASH_ATTENTION" \
     --gpu-uuid "$ROCM_GPU_UUID"
   configure_agents
@@ -162,6 +216,7 @@ echo 'Pulling the models listed in config.sh...'
 for model in "${MODELS[@]}"; do
   ollama pull "$model"
 done
+create_tuned_model
 
 echo 'Installing Hermes Agent for the current user...'
 curl --connect-timeout 15 --max-time 120 --retry 2 --fail --show-error --location https://hermes-agent.nousresearch.com/install.sh \
@@ -170,7 +225,7 @@ bash "$temp_dir/hermes-install.sh" --channel "$HERMES_CHANNEL" --non-interactive
 echo 'Checking the installed programs, models and GPU inference...'
 hermes --version
 ollama list
-/usr/bin/python "$SCRIPT_DIR/verify.py" --model "$DEFAULT_MODEL" --context "$CONTEXT_LENGTH" \
+/usr/bin/python "$SCRIPT_DIR/verify.py" --model "$ACTIVE_MODEL" --context "$CONTEXT_LENGTH" \
     --kv-cache "$KV_CACHE_TYPE" --flash-attention "$FLASH_ATTENTION" \
     --gpu-uuid "$ROCM_GPU_UUID"
 # Publish matching agent settings only after the server passes verification.

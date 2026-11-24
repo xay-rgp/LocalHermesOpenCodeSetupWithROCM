@@ -123,6 +123,10 @@ exit 1
             'ollama pull prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S',
             calls,
         )
+        self.assertIn('ollama create gemma-4-26b-fast:Q4_K_S', calls)
+        self.assertIn('Environment="OLLAMA_KV_CACHE_TYPE=q4_0"', calls)
+        self.assertIn('Environment="OLLAMA_CONTEXT_LENGTH=32768"', calls)
+        self.assertIn('Environment="OLLAMA_KEEP_ALIVE=30m"', calls)
         self.assertIn('hermes --version', calls)
         self.assertIn('verify', calls)
         self.assertIn('Environment="ROCR_VISIBLE_DEVICES=GPU-4f3288ca66e47853"', calls)
