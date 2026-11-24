@@ -18,8 +18,9 @@ TUNED_MODEL_NUM_BATCH=512
 
 # Shared Ollama service allocation and Hermes model.context_length.
 # Keep these equal so Hermes compacts before Ollama truncates user messages.
-# 32K context with q4_0 KV cache keeps 15 GB Q4_K_S models 100% in 16 GB VRAM.
-CONTEXT_LENGTH=32768
+# Hermes Agent requires at least 64,000 tokens; 65536 (64K) with q4_0 KV cache
+# satisfies the minimum while keeping KV cache memory compact on a 16 GB GPU.
+CONTEXT_LENGTH=65536
 # Only expose this RX 9060 XT to Ollama. On another machine, replace the UUID
 # with its GPU's Uuid from: sudo -u ollama /opt/rocm/bin/rocminfo
 ROCM_GPU_UUID="GPU-4f3288ca66e47853"
@@ -35,7 +36,7 @@ PERFORMANCE_PROFILE="${PERFORMANCE_PROFILE:-custom}"
 case "$PERFORMANCE_PROFILE" in
   custom) ;;
   speed)
-    CONTEXT_LENGTH=32768
+    CONTEXT_LENGTH=65536
     FLASH_ATTENTION=1
     KV_CACHE_TYPE="q4_0"
     KEEP_ALIVE="30m"

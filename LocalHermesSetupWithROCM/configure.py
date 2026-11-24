@@ -183,6 +183,10 @@ esac
     if not check_only:
         for path, text in pending.items():
             save(path, text)
+        # Clear Hermes's cached Ollama /api/show probes so updated num_ctx takes effect immediately.
+        probe_cache = hermes_home / 'cache/local_endpoint_probes.json'
+        if probe_cache.is_file() and not probe_cache.is_symlink():
+            probe_cache.unlink(missing_ok=True)
 
 
 def installed_models():

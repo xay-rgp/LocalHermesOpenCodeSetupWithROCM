@@ -74,13 +74,13 @@ exit 1
         self.env['PERFORMANCE_PROFILE'] = 'speed'
         result = self.run_setup('--dry-run')
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn('context=32768', result.stdout)
+        self.assertIn('context=65536', result.stdout)
         self.assertIn('keep-alive=30m', result.stdout)
         self.assertFalse(list(self.home.iterdir()))
         result = self.run_setup('--configure-only')
         self.assertEqual(result.returncode, 0, result.stderr)
         config = yaml.safe_load((self.home / '.hermes/config.yaml').read_text())
-        self.assertEqual(config['model']['context_length'], 32768)
+        self.assertEqual(config['model']['context_length'], 65536)
         self.assertEqual(config['model']['base_url'], 'http://127.0.0.1:11434/v1')
 
     def test_unknown_performance_profile_fails_without_changes(self):
@@ -125,7 +125,7 @@ exit 1
         )
         self.assertIn('ollama create gemma-4-26b-fast:Q4_K_S', calls)
         self.assertIn('Environment="OLLAMA_KV_CACHE_TYPE=q4_0"', calls)
-        self.assertIn('Environment="OLLAMA_CONTEXT_LENGTH=32768"', calls)
+        self.assertIn('Environment="OLLAMA_CONTEXT_LENGTH=65536"', calls)
         self.assertIn('Environment="OLLAMA_KEEP_ALIVE=30m"', calls)
         self.assertIn('hermes --version', calls)
         self.assertIn('verify', calls)
