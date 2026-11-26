@@ -321,3 +321,8 @@ No tokens/s improvement is claimed until measured on the host.
 References: [Ollama memory and concurrency settings](https://docs.ollama.com/faq),
 [context and offloading](https://docs.ollama.com/context-length), and
 [generation timings](https://docs.ollama.com/api/generate).
+
+## Contributors
+
+- **xay-rgp** — Repository author & maintainer
+- **Antigravity (Google DeepMind)** — OpenCode setup integration, configuration deployment, and tests
