@@ -2,19 +2,19 @@
 # Bash syntax: one quoted Ollama model name per line. These names are also
 # used in the Ollama launcher. Old model downloads are NOT deleted.
 MODELS=(
-  "qwen3-coder:30b"
+  "hf.co/unsloth/Inkling-2-Mini-GGUF:UD-Q3_K_XL"
   "huihui_ai/Qwen3.8-abliterated:27b"
   "prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S"
 )
-DEFAULT_MODEL="prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S"
+DEFAULT_MODEL="hf.co/unsloth/Inkling-2-Mini-GGUF:UD-Q3_K_XL"
 
 # Tuned Ollama alias built locally from DEFAULT_MODEL (zero extra disk space).
-# Forces 100% GPU offload (num_gpu 999) and optimal prefill batch (num_batch 512)
-# so Ollama's default VRAM margin does not spill MoE experts to CPU RAM.
+# Forces 100% GPU offload (num_gpu 999) and lean prefill batch (num_batch 128)
+# so Inkling 2 Mini's looped-MoE compute buffer fits inside 16 GB VRAM without spilling to CPU RAM.
 # Set TUNED_MODEL_NAME="" to disable creating an alias and use DEFAULT_MODEL directly.
-TUNED_MODEL_NAME="gemma-4-26b-fast:Q4_K_S"
+TUNED_MODEL_NAME="inkling-2-mini-fast:UD-Q3_K_XL"
 TUNED_MODEL_NUM_GPU=999
-TUNED_MODEL_NUM_BATCH=512
+TUNED_MODEL_NUM_BATCH=128
 
 # Shared Ollama service allocation and Hermes model.context_length.
 # Keep these equal so Hermes compacts before Ollama truncates user messages.
