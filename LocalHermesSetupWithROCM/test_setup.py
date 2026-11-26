@@ -126,6 +126,10 @@ exit 1
             'ollama pull prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S',
             calls,
         )
+        self.assertIn(
+            'ollama create prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S -f ',
+            calls,
+        )
         self.assertIn('Environment="OLLAMA_KV_CACHE_TYPE=q4_0"', calls)
         self.assertIn('Environment="OLLAMA_CONTEXT_LENGTH=65536"', calls)
         self.assertIn('Environment="OLLAMA_KEEP_ALIVE=30m"', calls)
@@ -253,6 +257,42 @@ exit 1
         result = self.run_setup('--tune-only')
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(self.calls(), '')
+
+    @unittest.skipUnless(Path('/etc/arch-release').exists() and os.geteuid() != 0,
+                         'shell tuning simulation requires non-root Arch host')
+    def test_sampling_parameters_are_baked_into_default_model(self):
+        self.stub('ollama', '''echo "ollama $*" >> "$AUDIT_LOG"
+if [[ "$1" == create && "$3" == -f ]]; then cat "$4" >> "$AUDIT_LOG"; fi
+''')
+        result = self.run_setup('--tune-only')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        calls = self.calls()
+        self.assertIn('ollama cp prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S-setup-backup', calls)
+        self.assertIn('PARAMETER temperature 1.0', calls)
+        self.assertIn('PARAMETER top_k 64', calls)
+        self.assertIn('PARAMETER top_p 0.95', calls)
+        self.assertIn('PARAMETER repeat_penalty 1.12', calls)
+        self.assertIn('PARAMETER repeat_last_n 256', calls)
+        self.assertIn('PARAMETER num_ctx 65536', calls)
+        self.assertIn('ollama rm prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S-setup-backup', calls)
+        self.assertIn('ollama stop prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S', calls)
+
+    def test_invalid_sampling_parameters_are_rejected(self):
+        config = self.repo / 'config.sh'
+        original = config.read_text()
+        for line, expected in (
+            ('MODEL_TEMPERATURE="-1"', 'MODEL_TEMPERATURE'),
+            ('MODEL_TOP_K="0"', 'MODEL_TOP_K'),
+            ('MODEL_TOP_P="1.5"', 'MODEL_TOP_P'),
+            ('MODEL_REPEAT_PENALTY="abc"', 'MODEL_REPEAT_PENALTY'),
+            ('MODEL_REPEAT_LAST_N="-5"', 'MODEL_REPEAT_LAST_N'),
+        ):
+            with self.subTest(line=line):
+                config.write_text(original + f'\n{line}\n')
+                result = self.run_setup('--dry-run')
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(expected, result.stderr)
+                self.assertEqual(self.calls(), '')
 
 
 if __name__ == '__main__':

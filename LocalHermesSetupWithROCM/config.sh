@@ -12,6 +12,14 @@ TUNED_MODEL_NAME=""
 TUNED_MODEL_NUM_GPU=999
 TUNED_MODEL_NUM_BATCH=512
 
+# Sampling / anti-repetition parameters baked into the active Ollama model
+# (prevents Gemma 4 repetition loops; set any value to "" to omit it).
+MODEL_TEMPERATURE="1.0"
+MODEL_TOP_K="64"
+MODEL_TOP_P="0.95"
+MODEL_REPEAT_PENALTY="1.12"
+MODEL_REPEAT_LAST_N="256"
+
 # Shared Ollama service allocation and Hermes model.context_length.
 # Keep these equal so Hermes compacts before Ollama truncates user messages.
 # Hermes Agent requires at least 64,000 tokens; 65536 (64K) with q4_0 KV cache

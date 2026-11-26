@@ -52,14 +52,38 @@ done
 TUNED_MODEL_NAME="${TUNED_MODEL_NAME:-}"
 TUNED_MODEL_NUM_GPU="${TUNED_MODEL_NUM_GPU:-999}"
 TUNED_MODEL_NUM_BATCH="${TUNED_MODEL_NUM_BATCH:-512}"
+MODEL_TEMPERATURE="${MODEL_TEMPERATURE:-}"
+MODEL_TOP_K="${MODEL_TOP_K:-}"
+MODEL_TOP_P="${MODEL_TOP_P:-}"
+MODEL_REPEAT_PENALTY="${MODEL_REPEAT_PENALTY:-}"
+MODEL_REPEAT_LAST_N="${MODEL_REPEAT_LAST_N:-}"
 GPU_POWER_PROFILE="${GPU_POWER_PROFILE:-}"
 if [[ -n "$TUNED_MODEL_NAME" ]]; then
   [[ "$TUNED_MODEL_NAME" =~ ^[A-Za-z0-9][A-Za-z0-9._:/-]*$ ]] || { echo "Invalid TUNED_MODEL_NAME: $TUNED_MODEL_NAME" >&2; exit 2; }
   [[ "$TUNED_MODEL_NUM_GPU" =~ ^[1-9][0-9]*$ ]] || { echo 'TUNED_MODEL_NUM_GPU must be a positive integer.' >&2; exit 2; }
   [[ "$TUNED_MODEL_NUM_BATCH" =~ ^[1-9][0-9]*$ ]] || { echo 'TUNED_MODEL_NUM_BATCH must be a positive integer.' >&2; exit 2; }
 fi
+if [[ -n "$MODEL_TEMPERATURE" ]]; then
+  [[ "$MODEL_TEMPERATURE" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo 'MODEL_TEMPERATURE must be a non-negative number.' >&2; exit 2; }
+fi
+if [[ -n "$MODEL_TOP_K" ]]; then
+  [[ "$MODEL_TOP_K" =~ ^[1-9][0-9]*$ ]] || { echo 'MODEL_TOP_K must be a positive integer.' >&2; exit 2; }
+fi
+if [[ -n "$MODEL_TOP_P" ]]; then
+  [[ "$MODEL_TOP_P" =~ ^(0(\.[0-9]+)?|1(\.0+)?)$ ]] || { echo 'MODEL_TOP_P must be between 0 and 1.' >&2; exit 2; }
+fi
+if [[ -n "$MODEL_REPEAT_PENALTY" ]]; then
+  [[ "$MODEL_REPEAT_PENALTY" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo 'MODEL_REPEAT_PENALTY must be a non-negative number.' >&2; exit 2; }
+fi
+if [[ -n "$MODEL_REPEAT_LAST_N" ]]; then
+  [[ "$MODEL_REPEAT_LAST_N" =~ ^[0-9]+$ ]] || { echo 'MODEL_REPEAT_LAST_N must be a non-negative integer.' >&2; exit 2; }
+fi
 if [[ -n "$GPU_POWER_PROFILE" ]]; then
   [[ "$GPU_POWER_PROFILE" =~ ^[0-9]+$ ]] || { echo 'GPU_POWER_PROFILE must be a non-negative integer.' >&2; exit 2; }
+fi
+HAS_MODEL_SAMPLING_PARAMS=false
+if [[ -n "$MODEL_TEMPERATURE" || -n "$MODEL_TOP_K" || -n "$MODEL_TOP_P" || -n "$MODEL_REPEAT_PENALTY" || -n "$MODEL_REPEAT_LAST_N" ]]; then
+  HAS_MODEL_SAMPLING_PARAMS=true
 fi
 ACTIVE_MODEL="${TUNED_MODEL_NAME:-$DEFAULT_MODEL}"
 AGENT_MODELS=("${MODELS[@]}")
@@ -88,6 +112,8 @@ PLAN
   printf '   %s\n' "${MODELS[@]}"
   if [[ -n "$TUNED_MODEL_NAME" ]]; then
     echo "   Create tuned alias $TUNED_MODEL_NAME from $DEFAULT_MODEL (num_gpu=$TUNED_MODEL_NUM_GPU, num_ctx=$CONTEXT_LENGTH, num_batch=$TUNED_MODEL_NUM_BATCH)."
+  elif [[ "$HAS_MODEL_SAMPLING_PARAMS" == true ]]; then
+    echo "   Bake sampling parameters into $DEFAULT_MODEL (temperature=${MODEL_TEMPERATURE:-default}, top_k=${MODEL_TOP_K:-default}, top_p=${MODEL_TOP_P:-default}, repeat_penalty=${MODEL_REPEAT_PENALTY:-default}, repeat_last_n=${MODEL_REPEAT_LAST_N:-default}, num_ctx=$CONTEXT_LENGTH)."
   fi
   cat <<PLAN
 4. Install Hermes CLI (channel=$HERMES_CHANNEL) as this user (OpenCode is installed via pacman).
@@ -127,16 +153,46 @@ apply_gpu_power_profile() {
   done
 }
 
+append_sampling_parameters() {
+  local modelfile="$1"
+  [[ -z "$MODEL_TEMPERATURE" ]] || printf 'PARAMETER temperature %s\n' "$MODEL_TEMPERATURE" >> "$modelfile"
+  [[ -z "$MODEL_TOP_K" ]] || printf 'PARAMETER top_k %s\n' "$MODEL_TOP_K" >> "$modelfile"
+  [[ -z "$MODEL_TOP_P" ]] || printf 'PARAMETER top_p %s\n' "$MODEL_TOP_P" >> "$modelfile"
+  [[ -z "$MODEL_REPEAT_PENALTY" ]] || printf 'PARAMETER repeat_penalty %s\n' "$MODEL_REPEAT_PENALTY" >> "$modelfile"
+  [[ -z "$MODEL_REPEAT_LAST_N" ]] || printf 'PARAMETER repeat_last_n %s\n' "$MODEL_REPEAT_LAST_N" >> "$modelfile"
+}
+
 create_tuned_model() {
-  [[ -n "$TUNED_MODEL_NAME" ]] || return 0
-  echo "Creating tuned Ollama alias $TUNED_MODEL_NAME from $DEFAULT_MODEL..."
-  cat > "$temp_dir/Modelfile.tuned" <<MODELFILE
+  if [[ -n "$TUNED_MODEL_NAME" ]]; then
+    echo "Creating tuned Ollama alias $TUNED_MODEL_NAME from $DEFAULT_MODEL..."
+    cat > "$temp_dir/Modelfile.tuned" <<MODELFILE
 FROM $DEFAULT_MODEL
 PARAMETER num_gpu $TUNED_MODEL_NUM_GPU
 PARAMETER num_ctx $CONTEXT_LENGTH
 PARAMETER num_batch $TUNED_MODEL_NUM_BATCH
 MODELFILE
-  ollama create "$TUNED_MODEL_NAME" -f "$temp_dir/Modelfile.tuned"
+    append_sampling_parameters "$temp_dir/Modelfile.tuned"
+    ollama create "$TUNED_MODEL_NAME" -f "$temp_dir/Modelfile.tuned"
+    ollama stop "$TUNED_MODEL_NAME" >/dev/null 2>&1 || true
+    return 0
+  fi
+
+  [[ "$HAS_MODEL_SAMPLING_PARAMS" == true ]] || return 0
+  local backup="${DEFAULT_MODEL}-setup-backup"
+  echo "Applying sampling parameters to $DEFAULT_MODEL..."
+  ollama cp "$DEFAULT_MODEL" "$backup"
+  cat > "$temp_dir/Modelfile.tuned" <<MODELFILE
+FROM $backup
+PARAMETER num_ctx $CONTEXT_LENGTH
+MODELFILE
+  append_sampling_parameters "$temp_dir/Modelfile.tuned"
+  if ollama create "$DEFAULT_MODEL" -f "$temp_dir/Modelfile.tuned"; then
+    ollama rm "$backup" >/dev/null 2>&1 || true
+    ollama stop "$DEFAULT_MODEL" >/dev/null 2>&1 || true
+  else
+    echo "Warning: keeping backup tag $backup after failed ollama create." >&2
+    return 1
+  fi
 }
 
 if [[ "$MODE" == configure-only ]]; then
