@@ -70,7 +70,7 @@ fi
 if [[ "$MODE" == dry-run ]]; then
   cat <<PLAN
 Target: Arch Linux x86_64 with an AMD ROCm-supported GPU.
-1. Run a normal full Arch upgrade and install ollama, ollama-rocm,
+1. Run a normal full Arch upgrade and install ollama, ollama-rocm, opencode,
    git, curl, tar, python, python-yaml, ttf-jetbrains-mono-nerd,
    noto-fonts, noto-fonts-emoji (sudo pacman -Syu --needed ...).
 2. Write a backed-up systemd drop-in: ROCm only, context=$CONTEXT_LENGTH,
@@ -90,11 +90,12 @@ PLAN
     echo "   Create tuned alias $TUNED_MODEL_NAME from $DEFAULT_MODEL (num_gpu=$TUNED_MODEL_NUM_GPU, num_ctx=$CONTEXT_LENGTH, num_batch=$TUNED_MODEL_NUM_BATCH)."
   fi
   cat <<PLAN
-4. Install Hermes CLI (channel=$HERMES_CHANNEL) as this user.
+4. Install Hermes CLI (channel=$HERMES_CHANNEL) as this user (OpenCode is installed via pacman).
 5. Generate a short response with the default model ($ACTIVE_MODEL) and verify ROCm GPU use.
-6. Configure Hermes for local Ollama; default=$ACTIVE_MODEL.
-   Install and activate the white theme, including both ASCII graphics.
-   Enable persistent memory and past-conversation recall; preserve existing notes.
+6. Configure Hermes and OpenCode for local Ollama; default=$ACTIVE_MODEL.
+   Install and activate the Hermes white theme, including both ASCII graphics.
+   Enable Hermes persistent memory and past-conversation recall; preserve existing notes.
+   Deploy OpenCode config (opencode.json, cli.json theme/plugins, and bundled skills).
    Add shell PATH entries for Bash and Fish; back up changed existing files.
 Other downloaded models are never deleted. No changes made by this dry run.
 PLAN
@@ -140,7 +141,7 @@ MODELFILE
 
 if [[ "$MODE" == configure-only ]]; then
   configure_agents
-  echo 'Hermes settings updated. Ollama service context and model downloads were not changed.'
+  echo 'Hermes and OpenCode settings updated. Ollama service context and model downloads were not changed.'
   echo 'Start a new Hermes session (/new) to load memory and recall instructions.'
   exit 0
 fi
@@ -156,7 +157,7 @@ trap 'echo "Setup stopped at line $LINENO. Fix the reported error and rerun; com
 
 if [[ "$MODE" == install ]]; then
   echo 'Installing system packages with a full Arch upgrade (pacman will show its normal confirmation)...'
-  sudo pacman -Syu --needed ollama ollama-rocm git curl tar python python-yaml \
+  sudo pacman -Syu --needed ollama ollama-rocm opencode git curl tar python python-yaml \
     ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji
 
 fi
@@ -224,6 +225,7 @@ curl --connect-timeout 15 --max-time 120 --retry 2 --fail --show-error --locatio
 bash "$temp_dir/hermes-install.sh" --channel "$HERMES_CHANNEL" --non-interactive
 echo 'Checking the installed programs, models and GPU inference...'
 hermes --version
+opencode --version
 ollama list
 /usr/bin/python "$SCRIPT_DIR/verify.py" --model "$ACTIVE_MODEL" --context "$CONTEXT_LENGTH" \
     --kv-cache "$KV_CACHE_TYPE" --flash-attention "$FLASH_ATTENTION" \
@@ -231,4 +233,4 @@ ollama list
 # Publish matching agent settings only after the server passes verification.
 configure_agents
 echo 'Setup complete. Select JetBrainsMono Nerd Font Mono in your terminal font settings.'
-echo 'Restart your terminal and run hermes in your project directory.'
+echo 'Restart your terminal and run hermes or opencode in your project directory.'

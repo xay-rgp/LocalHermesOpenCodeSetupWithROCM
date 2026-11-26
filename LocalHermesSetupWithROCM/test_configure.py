@@ -271,6 +271,35 @@ class ConfigurationTests(unittest.TestCase):
             capture_output=True, text=True, check=True)
         self.assertEqual(result.stdout, 'bash_login')
 
+    def test_opencode_configuration_and_skills_deployed(self):
+        self.write('.config/opencode/opencode.json', {'custom_flag': True})
+        self.write('.config/opencode/cli.json', {'plugins': ['custom-plugin'], 'extra': 1})
+        self.run_configuration()
+        oc = json.loads((self.home / '.config/opencode/opencode.json').read_text())
+        self.assertTrue(oc['custom_flag'])
+        self.assertEqual(oc['model'], 'opencode/deepseek-v4.1-flash-free')
+        self.assertEqual(oc['small_model'], 'opencode/deepseek-v4.1-flash-free')
+        self.assertEqual(oc['compaction'], {'auto': True, 'buffer': 16384, 'keep': {'tokens': 8000}})
+        for m in self.models:
+            self.assertEqual(oc['provider']['ollama']['models'][m]['limit'], {'context': 65536, 'output': 16384})
+        cli = json.loads((self.home / '.config/opencode/cli.json').read_text())
+        self.assertEqual(cli['theme'], {'name': 'mercury'})
+        self.assertEqual(cli['extra'], 1)
+        self.assertEqual(cli['plugins'], ['custom-plugin', '@rashidrazak/opencode-status-line'])
+        self.assertTrue((self.home / '.config/opencode/skills/python-development/SKILL.md').is_file())
+        self.assertFalse((self.home / '.config/opencode/service.json').exists())
+        self.assertFalse((self.home / '.config/opencode/AGENTS.md').exists())
+        self.assertTrue(list((self.home / '.config/opencode').glob('opencode.json.backup-*')))
+
+    def test_bad_opencode_json_fails_before_any_writes(self):
+        path = self.home / '.config/opencode/opencode.json'
+        path.parent.mkdir(parents=True)
+        path.write_text('{broken json')
+        with self.assertRaises(json.JSONDecodeError):
+            self.run_configuration()
+        self.assertFalse((self.home / '.hermes').exists())
+        self.assertFalse((self.home / '.ollama').exists())
+
     def test_new_login_profile_preserves_profile_loading(self):
         (self.home / '.profile').write_text('# existing profile\n')
         self.run_configuration()

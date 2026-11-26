@@ -1,6 +1,6 @@
 # Local model setup: Arch Linux + AMD ROCm
 
-Installs Ollama with ROCm, your two models, and Hermes Agent. Written for your Arch Linux x86_64 / RX 9060 XT setup.
+Installs Ollama with ROCm, your configured local models, Hermes Agent, and OpenCode. Written for your Arch Linux x86_64 / RX 9060 XT setup.
 It can also run on another Arch x86_64 machine with a supported AMD GPU;
 it is not an Ubuntu, NVIDIA, macOS, or Windows installer.
 
@@ -95,7 +95,7 @@ setup wizard because this script configures the local provider afterward.
 
 ## What changes
 
-- System packages: Ollama, its ROCm backend, Git, curl, tar, Python, PyYAML.
+- System packages: Ollama, its ROCm backend, OpenCode (`opencode`), Git, curl, tar, Python, PyYAML.
 - `/etc/systemd/system/ollama.service.d/zz-local-model-setup.conf`: disables
   Vulkan to choose ROCm, sets loopback binding, context, one parallel request,
   one loaded model, Flash Attention, Q8 KV cache, and keep-alive. It leaves the existing model-store path
@@ -109,6 +109,11 @@ setup wizard because this script configures the local provider afterward.
 - `~/.hermes/config.yaml`: custom local Ollama endpoint, placeholder API key,
   default model, chat-completions API mode, and context length. `HERMES_HOME` overrides the configuration
   directory for both installation and configuration.
+- `~/.config/opencode/`: deploys bundled `opencode.json` (model, compaction, and
+  local Ollama provider models synced with `CONTEXT_LENGTH`), `cli.json`
+  (`mercury` theme and `@rashidrazak/opencode-status-line` plugin), and all
+  bundled `skills/` files. Existing unrelated keys and extra plugins are
+  preserved; `service.json`, `AGENTS.md`, and `memories/` are never overwritten.
 - `~/.ollama/config.json`: Hermes launch selections.
 - Bash startup files plus `~/.config/fish/conf.d/local-model-setup.fish`:
   make the installed Hermes command available in new terminals.
@@ -182,6 +187,24 @@ Existing Hermes environment overrides (such as `CUSTOM_BASE_URL`), custom
 profiles, and auxiliary-provider settings can change runtime routing; this setup
 preserves those unrelated settings. The generated default model configuration
 targets local Ollama. Optional external tools may require their own services.
+
+## OpenCode
+
+`setup.sh` installs the `opencode` package from Arch's `extra` repository and
+`configure.py` deploys the bundled configuration in `LocalHermesSetupWithROCM/opencode/`
+into `~/.config/opencode/`:
+
+- `opencode.json`: sets default/small models, compaction settings, and registers
+  all configured/discovered local Ollama models with `CONTEXT_LENGTH` context
+  limits while preserving unrelated settings.
+- `cli.json`: sets the `mercury` theme and ensures `@rashidrazak/opencode-status-line`
+  is enabled while preserving any additional user plugins.
+- `skills/`: deploys all bundled OpenCode skills atomically with backups on change.
+
+`service.json` (local service password) and personal `AGENTS.md` / `memories/`
+files are not bundled and are left untouched if already present. Run
+`bash setup.sh --configure-only` to redeploy OpenCode and Hermes configs without
+reinstalling packages or restarting Ollama.
 
 ## White theme
 

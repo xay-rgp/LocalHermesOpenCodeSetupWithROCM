@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Merge local-model configuration into Hermes; preserve unrelated settings."""
+"""Merge local-model configuration into Hermes and OpenCode; preserve unrelated settings."""
 import argparse
 import datetime
 import json
@@ -83,6 +83,74 @@ def memory_files(hermes_home, memory):
     return pending
 
 
+def opencode_files(home, ordered_models, context):
+    """Prepare OpenCode config, CLI theme/plugins, and bundled skills without touching secrets or memories."""
+    template_dir = Path(__file__).resolve().parent / 'opencode'
+    opencode_dir = home / '.config/opencode'
+    pending = {}
+
+    oc_path = opencode_dir / 'opencode.json'
+    oc_template = read_json(template_dir / 'opencode.json')
+    oc_cfg = read_json(oc_path)
+    for key in ('$schema', 'model', 'small_model', 'compaction'):
+        if key in oc_template:
+            oc_cfg[key] = oc_template[key]
+    provider = oc_cfg.get('provider', {})
+    if not isinstance(provider, dict):
+        raise ValueError(f'{oc_path}: provider must be an object')
+    provider = dict(provider)
+    ollama_provider = provider.get('ollama', {})
+    if not isinstance(ollama_provider, dict):
+        raise ValueError(f'{oc_path}: provider.ollama must be an object')
+    ollama_provider = dict(ollama_provider)
+    ollama_models = ollama_provider.get('models', {})
+    if not isinstance(ollama_models, dict):
+        raise ValueError(f'{oc_path}: provider.ollama.models must be an object')
+    ollama_models = dict(ollama_models)
+    default_output = min(16384, context)
+    for name in ordered_models:
+        existing_entry = ollama_models.get(name, {})
+        if not isinstance(existing_entry, dict):
+            existing_entry = {}
+        existing_limit = existing_entry.get('limit', {})
+        if not isinstance(existing_limit, dict):
+            existing_limit = {}
+        ollama_models[name] = {
+            **existing_entry,
+            'limit': {
+                **existing_limit,
+                'context': context,
+                'output': existing_limit.get('output', default_output),
+            },
+        }
+    ollama_provider['models'] = ollama_models
+    provider['ollama'] = ollama_provider
+    oc_cfg['provider'] = provider
+    pending[oc_path] = json.dumps(oc_cfg, indent=2) + '\n'
+
+    cli_path = opencode_dir / 'cli.json'
+    cli_template = read_json(template_dir / 'cli.json')
+    cli_cfg = read_json(cli_path)
+    for key in ('$schema', 'theme'):
+        if key in cli_template:
+            cli_cfg[key] = cli_template[key]
+    existing_plugins = cli_cfg.get('plugins', [])
+    if not isinstance(existing_plugins, list):
+        raise ValueError(f'{cli_path}: plugins must be a list')
+    template_plugins = cli_template.get('plugins', [])
+    cli_cfg['plugins'] = list(dict.fromkeys(list(existing_plugins) + list(template_plugins)))
+    pending[cli_path] = json.dumps(cli_cfg, indent=2) + '\n'
+
+    skills_src = template_dir / 'skills'
+    if skills_src.is_dir():
+        for src in sorted(skills_src.rglob('*')):
+            if src.is_file():
+                rel = src.relative_to(skills_src)
+                pending[opencode_dir / 'skills' / rel] = src.read_text(encoding='utf-8')
+
+    return pending
+
+
 def configure(home, models, default, context=65536, hermes_home=None, check_only=False):
     if not models or len(set(models)) != len(models) or default not in models:
         raise ValueError('Models must be unique and include the default')
@@ -144,6 +212,7 @@ def configure(home, models, default, context=65536, hermes_home=None, check_only
                ollama_path: json.dumps(ollama, indent=2) + '\n',
                hermes_path: yaml.safe_dump(hermes, sort_keys=False, allow_unicode=True)}
     pending.update(memory_files(hermes_home, memory))
+    pending.update(opencode_files(home, ordered, context))
 
     # Avoid global API environment exports; configure each agent explicitly.
     path_script = '''# Managed by LocalModelSetupScript. Bash login/interactive PATH.

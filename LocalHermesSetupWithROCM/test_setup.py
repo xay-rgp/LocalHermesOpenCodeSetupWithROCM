@@ -19,6 +19,7 @@ class SetupTests(unittest.TestCase):
         for name in ('setup.sh', 'config.sh', 'configure.py'):
             shutil.copy2(Path(__file__).parent / name, self.repo / name)
         shutil.copytree(Path(__file__).parent / 'skins', self.repo / 'skins')
+        shutil.copytree(Path(__file__).parent / 'opencode', self.repo / 'opencode')
         (self.repo / 'verify.py').write_text(
             'import os, sys\nfrom pathlib import Path\n'
             'with open(os.environ["AUDIT_LOG"], "a") as f: f.write("verify\\n")\n'
@@ -39,6 +40,7 @@ if [[ "$1" == pacman && "${PACMAN_FAIL:-0}" == 1 ]]; then exit 1; fi
 ''')
         self.stub('ollama', 'echo "ollama $*" >> "$AUDIT_LOG"\n')
         self.stub('hermes', 'echo "hermes $*" >> "$AUDIT_LOG"\n')
+        self.stub('opencode', 'echo "opencode $*" >> "$AUDIT_LOG"\n')
         self.stub('curl', '''echo "curl $*" >> "$AUDIT_LOG"
 if [[ "$*" == *api/version* ]]; then exit 0; fi
 if [[ "${DOWNLOAD_FAIL:-0}" == 1 ]]; then exit 22; fi
@@ -117,19 +119,23 @@ exit 1
         self.assertEqual(result.returncode, 0, result.stderr)
         calls = self.calls()
         self.assertIn('pacman -Syu --needed', calls)
+        self.assertIn('opencode', calls)
         self.assertIn('installer --channel stable --non-interactive', calls)
-        self.assertEqual(calls.count('ollama pull '), 3)
+        self.assertEqual(calls.count('ollama pull '), 1)
         self.assertIn(
             'ollama pull prutser/gemma-4-26B-A4B-it-ara-abliterated:Q4_K_S',
             calls,
         )
-        self.assertIn('ollama create gemma-4-26b-fast:Q4_K_S', calls)
         self.assertIn('Environment="OLLAMA_KV_CACHE_TYPE=q4_0"', calls)
         self.assertIn('Environment="OLLAMA_CONTEXT_LENGTH=65536"', calls)
         self.assertIn('Environment="OLLAMA_KEEP_ALIVE=30m"', calls)
         self.assertIn('hermes --version', calls)
+        self.assertIn('opencode --version', calls)
         self.assertIn('verify', calls)
         self.assertIn('Environment="ROCR_VISIBLE_DEVICES=GPU-4f3288ca66e47853"', calls)
+        self.assertTrue((self.home / '.config/opencode/opencode.json').is_file())
+        self.assertTrue((self.home / '.config/opencode/cli.json').is_file())
+        self.assertTrue((self.home / '.config/opencode/skills/python-development/SKILL.md').is_file())
         self.assertNotIn('cline', calls)
 
     @unittest.skipUnless(Path('/etc/arch-release').exists() and os.geteuid() != 0,
