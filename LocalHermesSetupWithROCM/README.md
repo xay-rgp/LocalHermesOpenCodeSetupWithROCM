@@ -326,3 +326,4 @@ References: [Ollama memory and concurrency settings](https://docs.ollama.com/faq
 
 - **xay-rgp** — Repository author & maintainer
 - **Antigravity (Google DeepMind)** — OpenCode setup integration, configuration deployment, and tests
+- **Google Gemini** — AI development assistance and co-authorship
